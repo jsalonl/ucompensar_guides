@@ -2,9 +2,7 @@
 
 ## Objetivo
 
-El objetivo de esta práctica es que los estudiantes instalen y configuren un entorno de desarrollo completo utilizando el stack **LAPP** (Linux, Apache, PostgreSQL y PHP).
-
-A través de esta actividad, los estudiantes aprenderán a instalar y configurar cada componente del stack, comprendiendo la interacción entre ellos y cómo se integran para crear un entorno de servidor web funcional con soporte para bases de datos PostgreSQL y ejecución de scripts PHP. Al finalizar, los estudiantes tendrán un servidor LAPP operativo que podrán utilizar como base para futuros proyectos y desarrollos web.
+El objetivo de esta práctica es que los estudiantes puedan tener un repaso de lo visto en semestres anteriores referente a routing y switching en un entorno laboral real, para dar paso a la configuración de seguriad en equipos Cisco e iniciar el módulo con otros dispositivos de red.
 
 ## Requisitos
 
