@@ -1,4 +1,4 @@
-# Instalación stack LAPP
+# Repaso redes
 
 ## Objetivo
 
@@ -7,6 +7,7 @@ El objetivo de esta práctica es que los estudiantes instalen y configuren un en
 A través de esta actividad, los estudiantes aprenderán a instalar y configurar cada componente del stack, comprendiendo la interacción entre ellos y cómo se integran para crear un entorno de servidor web funcional con soporte para bases de datos PostgreSQL y ejecución de scripts PHP. Al finalizar, los estudiantes tendrán un servidor LAPP operativo que podrán utilizar como base para futuros proyectos y desarrollos web.
 
 ## Requisitos
+
 - Computador:
   - **Procesador**: Core i3 o superior
   - **RAM**: 8 GB o superior
@@ -14,11 +15,8 @@ A través de esta actividad, los estudiantes aprenderán a instalar y configurar
 
 - Software:
   - **Sistema operativo**: Windows (Si bien puede emularse en MacOS y Linux se recomienda windows)
-  - **[Virtualbox](https://www.virtualbox.org/wiki/Downloads)**: Nos permite emular sistemas operativos sin necesidad de instalarlos directamente en el equipo. Se escoge la opción del sistema operativo donde se instalara y se ejecuta el paquete
-  - **[Imagen Ubuntu Server](https://releases.ubuntu.com/22.04/)**: Sistema operativo basado en debian, uno de los mas usados en entornos empresariales. Se escoge la última versión estable (para efectos de esta guía se escoge 22.04)
-  - **[Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)**: Cliente SSH, nos permitirá conectarnos a la máquina virtual. Se escoge la opción MSI (‘Windows Installer’) y se ejecuta.
+  - **[Packet Tracer](https://www.virtualbox.org/wiki/Downloads)**: Nos permite emular dispositivos cisco.
 
-  ***Nota: Si tiene otro sistema operativo como MacOS o Linux NO es necesario instalar putty***
 - Conexión a internet
 
 ## Procedimiento
@@ -52,7 +50,7 @@ A través de esta actividad, los estudiantes aprenderán a instalar y configurar
    ```
 
    > Entendiendo que estamos haciendo: Estamos instalando varios paquetes:
-   > 
+   >
    > **Apache**: es un servidor web que permite servir contenido web a través del protocolo HTTP. Es uno de los servidores web más utilizados en el mundo debido a su robustez, flexibilidad y soporte para una amplia variedad de lenguajes y módulos.
    >
    > **PostgreSQL**: es un sistema de gestión de bases de datos relacional (RDBMS) de código abierto, conocido por su robustez, escalabilidad y soporte avanzado para consultas SQL complejas. Es una opción popular para almacenar y gestionar datos de manera eficiente.
@@ -97,7 +95,6 @@ A través de esta actividad, los estudiantes aprenderán a instalar y configurar
    ![Imagen 7](./image7.png)
 
 7. Validar instalación de PHP
-   
 
    Para confirmar que nuestro PHP esta correctamente instalado vamos a crear un archivo nuevo en la carpeta raíz de apache, a través del siguiente comando:
 
@@ -105,8 +102,8 @@ A través de esta actividad, los estudiantes aprenderán a instalar y configurar
    echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/info.php
    ```
 
-   > Entendiendo que estamos haciendo: 
-   > 
+   > Entendiendo que estamos haciendo:
+   >
    > `echo "<?php phpinfo(); ?>"`: Este comando echo genera una línea de código PHP que ejecuta la función phpinfo(). Esta función muestra información detallada sobre la configuración de PHP en el servidor, incluyendo variables de entorno, módulos instalados, configuraciones de PHP, y mucho más.
    >
    > `|`: El símbolo de pipe ( | ) se utiliza para redirigir la salida del comando echo al siguiente comando en la línea, en lugar de mostrarlo en la pantalla.
@@ -120,7 +117,7 @@ A través de esta actividad, los estudiantes aprenderán a instalar y configurar
    ![Imagen 8](./image8.png)
 
 8. Probando git
-   
+
    Vamos a confirmar la correcta instalación de git, para ello ejecutamos
 
    ```shell
@@ -132,7 +129,7 @@ A través de esta actividad, los estudiantes aprenderán a instalar y configurar
    ![Imagen 9](./image9.png)
 
 9. Configurando PostgreSQL
-   
+
    Vamos a habilitar el servicio de base de datos PostgreSQL al inicio (es decir, cada vez que la máquina inicie, levantará el servicio)
 
    ```shell
@@ -155,14 +152,14 @@ A través de esta actividad, los estudiantes aprenderán a instalar y configurar
 
    Para salir, simplemente con la combinación de teclas ctrl + C
 
-   Si queremos verificar la consola de PostgreSQL debemos loguearnos con el usuario postgres (quien tiene permisos de administrador hacia el serviciod de base de datos) 
-   
+   Si queremos verificar la consola de PostgreSQL debemos loguearnos con el usuario postgres (quien tiene permisos de administrador hacia el serviciod de base de datos)
+
    ```shell
    sudo -i -u postgres
    ```
 
    Aca cambiará nuestro usuario a postgres y ejecutaremos el comando:
-   
+
    ```shell
    psql
    ```
