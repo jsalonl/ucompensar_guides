@@ -6,4 +6,4 @@ En este repositorio encontrará el material referente a la asignatura `Administr
 
 ## Contenido
 
-- [Instalación servidor LAPP (Linux, Apache, PHP, PostgreSQL)](./guia_1/guia_1.md)
+- [Instalación servidor LAPP (Linux, Apache, PHP, PostgreSQL)](./guia_1/README.md)
