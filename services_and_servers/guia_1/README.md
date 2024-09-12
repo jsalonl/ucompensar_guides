@@ -271,6 +271,10 @@ A través de esta actividad, los estudiantes aprenderán a instalar y configurar
 
       3. Editar .env y agregar los datos de conexión a nuestra base de datos, así como en `APP_USER` y `APP_EMAIL` poner nuestro nombre completo y correo electrónico respectivamente. Debe verse algo asi:
 
+         ```shell
+         sudo nano .env
+         ```
+
          ![Imagen 15](image15.png)
 
       Guardamos y cerramos el editor
