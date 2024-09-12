@@ -85,7 +85,7 @@ El objetivo de esta práctica es que los estudiantes puedan tener un repaso de l
       ```bash
       interface gigabitEthernet 0/0/0.10
       encapsulation dot1Q 10
-      ip address 10.0.0.1 255.255.255.128
+      ip address 10.0.0.1 255.255.255.192
       exit
       ```
 
