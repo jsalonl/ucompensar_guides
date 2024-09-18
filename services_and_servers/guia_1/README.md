@@ -1,4 +1,4 @@
-# Repaso redes
+# Instalación servidor LAPP (Linux, Apache, PHP, PostgreSQL)
 
 ## Objetivo
 
