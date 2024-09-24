@@ -51,7 +51,7 @@ El objetivo de esta práctica es que los estudiantes puedan tener un repaso de l
 
 ### Descargue el laboratorio
 
-[Lab Repaso Redes](https://sftp.devsys.app/web/client/pubshares/iBmLxwFVi85kL4c8Et7NLC/download)
+[Lab Repaso Redes](https://drive.google.com/file/d/1CMrxj3xzxRRqce1YaIteO70CAkLqeh6V/view?usp=sharing)
 
 ### Configuración Router principal sede 1
 
