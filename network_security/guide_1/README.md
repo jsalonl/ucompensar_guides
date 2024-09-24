@@ -146,3 +146,212 @@ El objetivo de esta práctica es que los estudiantes puedan tener un repaso de l
     > `end`: Este comando te saca del modo de configuración y vuelve al modo privilegiado (enable mode). Es una forma de salir de cualquier modo de configuración de una interfaz o línea, devolviéndote al nivel superior del CLI donde puedes ejecutar comandos globales.
     >
     > `wr`: Es una abreviatura para el comando write memory, que guarda la configuración actual (configuración en ejecución) en la memoria de inicio (startup-config). Esto asegura que los cambios se mantendrán después de un reinicio del router.
+
+## Configuración Switch principal sede 1
+
+1. Lo primero es notar que este switch tiene 4 interfaces gigabit diferentes, los cuales son:
+
+   - Gig6/1
+   - Gig7/1
+   - Gig8/1
+   - Gig9/1
+
+2. Nombramos al equipo
+
+   ````shell
+   enable
+   conf t
+   hostname SW1R1
+   ````
+
+3. Nuestro switch debe conocer las vlan para ello vamos a configurarlas:
+
+   1. VLAN de gerencia
+
+      ```shell
+      vlan 10
+      name gerencia
+      exit
+      ```
+
+   2. VLAN de operativos
+
+      ```shell
+      vlan 20
+      name operativos
+      exit
+      ```
+
+   3. VLAN de infraestructura
+
+      ```shell
+      vlan 30
+      name infraestructura
+      exit
+      ```
+
+   4. VLAN de gestión
+
+      ```shell
+      vlan 40
+      name gestion
+      exit
+      ```
+
+4. Para cada uno de las interfaces vamos a asignarlas en modo troncal:
+
+   1. Gigabit 6/1
+
+      ```shell
+      interface gi6/1
+      switchport mode trunk
+      switchport trunk allowed vlan 10,20,30,40
+      no shutdown
+      exit
+      ```
+
+   2. Gigabit 7/1
+
+      ```shell
+      interface gi7/1
+      switchport mode trunk
+      switchport trunk allowed vlan 10,20,30,40
+      no shutdown
+      exit
+      ```
+
+   3. Gigabit 8/1
+
+      ```shell
+      interface gi8/1
+      switchport mode trunk
+      switchport trunk allowed vlan 10,20,30,40
+      no shutdown
+      exit
+      ```
+
+   4. Gigabit 9/1
+
+      ```shell
+      interface gi9/1
+      switchport mode trunk
+      switchport trunk allowed vlan 10,20,30,40
+      no shutdown
+      exit
+      ```
+
+5. Agregamos la ip de gestión
+
+   ```shell
+   interface vlan 40
+   ip address 10.0.0.194 255.255.255.128
+   no shutdown
+   ```
+
+6. Guardamos cambios
+
+   ```shell
+   end
+   wr
+   ```
+
+## Configuración Switch distribución sede 1
+
+1. Nombramos al equipo
+
+   ````shell
+   enable
+   conf t
+   hostname SW2R1
+   ````
+
+2. Nuestro switch debe conocer las vlan para ello vamos a configurarlas:
+
+   1. VLAN de gerencia
+
+      ```shell
+      vlan 10
+      name gerencia
+      exit
+      ```
+
+   2. VLAN de operativos
+
+      ```shell
+      vlan 20
+      name operativos
+      exit
+      ```
+
+   3. VLAN de infraestructura
+
+      ```shell
+      vlan 30
+      name infraestructura
+      exit
+      ```
+
+   4. VLAN de gestión
+
+      ```shell
+      vlan 40
+      name gestion
+      exit
+      ```
+
+3. Nuestros puertos Gigabit Ethernet son troncales.
+
+   ```shell
+   interface range gi0/1-2
+   switchport mode trunk
+   switchport trunk allowed vlan 10,20,30,40
+   no shutdown
+   exit
+   ```
+
+4. Configuramos nuestros puertos de acceso, definidos asi:
+
+   - Puertos del 1 al 8: gerencia
+
+     ```shell
+     interface range fa0/1-8
+     switchport mode access
+     switchport access vlan 10
+     no shutdown
+     exit
+     ```
+
+   - Puertos del 9 al 16: operativos
+
+     ```shell
+     interface range fa0/9-16
+     switchport mode access
+     switchport access vlan 20
+     no shutdown
+     exit
+     ```
+
+   - Puertos del 17 al 24: infraestructura
+
+     ```shell
+     interface range fa0/17-24
+     switchport mode access
+     switchport access vlan 30
+     no shutdown
+     exit
+     ```
+
+5. Agregamos la ip de gestión
+
+   ```shell
+   interface vlan 40
+   ip address 10.0.0.195 255.255.255.128
+   no shutdown
+   ```
+
+6. Guardamos cambios
+
+   ```shell
+   end
+   wr
+   ```
